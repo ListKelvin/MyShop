@@ -20,7 +20,7 @@ const productApi = {
     const endpoint = `/products/category/${categoryId}`;
     try {
       const response = await get(endpoint, {}, {});
-      return response;
+      return response.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log(error);

@@ -4,8 +4,11 @@ import Flexbox from "./FlexBox";
 const CategoryList = ({ listCategory }: { listCategory: CategoryType[] }) => {
   return (
     <Flexbox $flexDirection="column" $gap="20">
+      <div className="item">All</div>
       {listCategory?.map((el) => (
-        <div key={el.id}>{el.name}</div>
+        <div className="item" key={el.id}>
+          {el.name}
+        </div>
       ))}
     </Flexbox>
   );
