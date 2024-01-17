@@ -30,11 +30,11 @@ const productApi = {
       return null;
     }
   },
-  getProductById: async (productId: string) => {
+  getProductById: async (productId: string | undefined) => {
     const endpoint = `/products/id/${productId}`;
     try {
       const response = await get(endpoint, {}, {});
-      return response;
+      return response.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log(error);

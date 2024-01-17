@@ -1,7 +1,7 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
 import ShopPage from "@/pages";
 import ProductDetails from "@/pages/ProductDetail";
-import { GetAllCategory } from "./loader";
+import { GetProductById, GetAllCategory } from "./loader";
 const routes: RouteObject[] = [
   {
     path: "/",
@@ -12,6 +12,7 @@ const routes: RouteObject[] = [
   {
     path: "/:id",
     element: <ProductDetails />,
+    loader: GetProductById,
     errorElement: <div>Something wrong</div>,
   },
   {

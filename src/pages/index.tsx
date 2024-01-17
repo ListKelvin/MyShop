@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { MaxWidthWrapper } from "@/global/styles";
 import CategoryList from "@/components/CategoryList";
 import Flexbox from "@/components/FlexBox";
@@ -17,7 +17,7 @@ const ShopPage: FC<ShopPageProps> = () => {
     response2: ProductType[];
   };
   const [currentData, setCurrentData] = useState<ProductType[]>(data.response2);
-  const [selectCategory, setSelectCategory] = useState("");
+  // const [selectCategory, setSelectCategory] = useState("");
   console.log("data: ", data);
 
   const PER_PAGE = 10;
@@ -43,13 +43,16 @@ const ShopPage: FC<ShopPageProps> = () => {
   // select thay đổi call api
   // get list new product by cate -> state chage
   // khi nhấn all set lại data ban đầu
-  useEffect(() => {}, [currentData]);
+  // useEffect(() => {}, [currentData]);
   return (
     <MaxWidthWrapper>
       <Flexbox $justifyContent="center">
         <div className="categories">
           <h1>Category</h1>
-          <CategoryList listCategory={data.response} />
+          <CategoryList
+            listCategory={data.response}
+            handleFilterProduct={handleFilterProduct}
+          />
         </div>
 
         <div className="productContainer">

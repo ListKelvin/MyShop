@@ -1,6 +1,8 @@
+import { ProductType } from "@/global/type";
 import { formatPrice } from "@/utils/utils";
 import { useState } from "react";
-const Product = ({ product }) => {
+import { Link } from "react-router-dom";
+const Product = ({ product }: { product: ProductType }) => {
   const format_price = formatPrice(product.price);
   const [imageSrc, setImageSrc] = useState(product.image);
   const errorImageSrc =
@@ -10,7 +12,7 @@ const Product = ({ product }) => {
     setImageSrc(errorImageSrc);
   };
   return (
-    <div className="product">
+    <Link to={`/${product.id}`} className="product">
       <div className="">
         <img
           src={imageSrc}
@@ -21,7 +23,7 @@ const Product = ({ product }) => {
       </div>
       <p>{product.name}</p>
       <strong>{format_price}</strong>
-    </div>
+    </Link>
   );
 };
 
